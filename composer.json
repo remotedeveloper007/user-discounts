@@ -1,0 +1,41 @@
+{
+    "name": "remotedeveloper007/user-discounts",
+    "description": "Deterministic, concurrency-safe user-level discounts for Laravel",
+    "type": "library",
+    "license": "MIT",
+
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0|^11.0|^12.0"
+    },
+    
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "phpunit/phpunit": "^10.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Remotedeveloper007\\UserDiscounts\\": "src/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+        "Remotedeveloper007\\UserDiscounts\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "bash run-tests.sh"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Remotedeveloper007\\UserDiscounts\\UserDiscountsServiceProvider"
+            ]
+        }
+    },
+
+    "minimum-stability": "stable",    
+    "prefer-stable": true
+}
