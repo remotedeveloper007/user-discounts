@@ -1,10 +1,16 @@
 {
     "name": "remotedeveloper007/user-discounts",
-    "description": "Deterministic, concurrency-safe user-level discounts for Laravel",
+    
+    "description": "Production-ready discount management for Laravel with deterministic stacking, concurrency safety, and usage caps",
+    
     "type": "library",
+    
     "license": "MIT",
+    
     "homepage": "https://github.com/remotedeveloper007/user-discounts",
+    
     "keywords": ["laravel", "discounts", "promotions", "coupons", "ecommerce", "user-discounts"],
+    
     "authors": [
         { "name": "remotedeveloper007", "role": "Maintainer" }
     ],
@@ -30,9 +36,11 @@
         "Remotedeveloper007\\UserDiscounts\\Tests\\": "tests/"
         }
     },
+    
     "scripts": {
         "test": "bash run-tests.sh"
     },
+    
     "extra": {
         "laravel": {
             "providers": [
