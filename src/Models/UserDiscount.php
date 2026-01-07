@@ -3,6 +3,7 @@
 namespace Remotedeveloper007\UserDiscounts\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class UserDiscount extends Model
 {
@@ -17,4 +18,12 @@ class UserDiscount extends Model
         'assigned_at' => 'datetime',
         'revoked_at' => 'datetime',
     ];
+
+    /**
+     * Get the discount associated with this user discount
+     */
+    public function discount(): BelongsTo
+    {
+        return $this->belongsTo(Discount::class);
+    }
 }
