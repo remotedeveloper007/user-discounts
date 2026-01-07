@@ -3,7 +3,12 @@
     "description": "Deterministic, concurrency-safe user-level discounts for Laravel",
     "type": "library",
     "license": "MIT",
-
+    "homepage": "https://github.com/remotedeveloper007/user-discounts",
+    "keywords": ["laravel", "discounts", "promotions", "coupons", "ecommerce", "user-discounts"],
+    "authors": [
+        { "name": "remotedeveloper007", "role": "Maintainer" }
+    ],
+    
     "require": {
         "php": "^8.2",
         "illuminate/support": "^10.0|^11.0|^12.0"

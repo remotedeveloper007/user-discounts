@@ -25,5 +25,7 @@ class UserDiscountsServiceProvider extends ServiceProvider
             __DIR__ . '/../database/migrations' =>
                 database_path('migrations'),
         ], 'user-discounts-migrations');
+
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 }
