@@ -94,14 +94,42 @@ $service->assign($user, $discount);
 if ($service->eligibleFor($user, $discount)) {
     // User can use this discount
 }
+
+// Get detailed eligibility with reason
+$result = $service->eligibleForWithReason($user, $discount);
+// Returns: ['eligible' => bool, 'reason' => string|null]
+// Reasons: 'expired', 'inactive', 'revoked', 'usage_cap_reached', or null if eligible
 ```
+
+**Eligibility Rules:**
+- Discount must be active (`active = true`)
+- Within valid date range (`starts_at` to `ends_at`)
+- Not revoked for this user
+- Usage cap not exceeded (if `max_usage_per_user` is set)
 
 ### Applying Discounts
 
 ```php
 $originalPrice = 100.00;
+
+// Simple apply (returns final amount only)
 $finalPrice = $service->apply($user, $originalPrice);
 // Automatically applies ALL eligible discounts in priority order
+
+// Detailed apply (returns structured data for UI/API)
+$result = $service->applyWithDetails($user, $originalPrice);
+// Returns: [
+//   'original_amount' => 100.00,
+//   'final_amount' => 85.00,
+//   'total_savings' => 15.00,
+//   'applied' => [
+//     ['code' => 'WELCOME10', 'type' => 'percentage', 'value' => 10, 'saved' => 10.00],
+//     ['code' => 'SAVE5', 'type' => 'fixed', 'value' => 5, 'saved' => 5.00],
+//   ],
+//   'skipped' => [
+//     ['code' => 'EXPIRED', 'reason' => 'expired'],
+//   ],
+// ]
 ```
 
 ### Revoking Discounts
