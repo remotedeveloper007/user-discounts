@@ -26,4 +26,12 @@ class UserDiscount extends Model
     {
         return $this->belongsTo(Discount::class);
     }
+
+    /**
+     * Get the user who owns this discount assignment
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(\App\Models\User::class);
+    }
 }
